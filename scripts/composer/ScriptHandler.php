@@ -104,17 +104,17 @@ class ScriptHandler {
     $drupalRoot = $drupalFinder->getDrupalRoot();
 
     $filesLocation = [
-      'example.settings.local.php' => 'sites/',
-      'development.services.yml' => 'sites/',
-      'settings.php' => 'sites/default/',
+      'example.settings.local.php' => 'sites',
+      'development.services.yml' => 'sites',
+      'settings.php' => 'sites/default',
     ];
 
     foreach ($filesLocation as $file => $location) {
+      $sourceFile = "{$drupalRoot}/../scripts/composer/files/{$file}";
       $targetFile = "{$drupalRoot}/{$location}/{$file}";
-      if ($fs->exists($targetFile)) {
-        continue;
-      }
-      $fs->copy("{$drupalRoot}/../scripts/composer/files/{$file}", $targetFile);
+
+      $event->getIO()->write("Copy {$sourceFile} to {$targetFile}");
+      $fs->copy($sourceFile, $targetFile, TRUE);
     }
   }
 
