@@ -1,8 +1,7 @@
 {
   "patches": {
     "drupal/smtp": {
-      "PHPMailer external library": "https://www.drupal.org/files/issues/2019-02-04/smtp-set-phpmailer-as-a-external-library-using-composer-2711559-38.patch",
-      "PHPMailer breaks AJAX response": "https://www.drupal.org/files/issues/2019-02-04/phpmailer-breaks-ajax-response.patch"
+      "Make PHPMailer throw exceptions instead of printing them out": "https://www.drupal.org/files/issues/2019-10-08/2857716-phpmailer-exceptions-5.patch"
     }
   }
 }
