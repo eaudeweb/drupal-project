@@ -1,15 +1,19 @@
-# Composer template for Drupal projects
+## 1. Usage
 
-[![Build Status](https://travis-ci.org/drupal-composer/drupal-project.svg?branch=8.x)](https://travis-ci.org/drupal-composer/drupal-project)
+### 1.1 Installing the project locally after it has been created using the composer template.
 
-This project template provides a starter kit for managing your site
-dependencies with [Composer](https://getcomposer.org/).
+1. Clone the repository
+2. Run `composer install`
+3. Configure the local settings files:
+   - `web/sites/default/settings.local.php`
+   - `robo.yml`
+   - `drush/sites/self.site.yml`
+4. Install the database using one of the two methods below:
+   1. Run `./install.sh` script which will clone the database from the url specified in `robo.yml` file
+   2. Run `./vendor/bin/robo site:install --existing-config` which will install the database using the configuration files found in `config/sync` directory
+   
 
-If you want to know how to use it as replacement for
-[Drush Make](https://github.com/drush-ops/drush/blob/8.x/docs/make.md) visit
-the [Documentation on drupal.org](https://www.drupal.org/node/2471553).
-
-## Usage
+### 1.2 Creating the project for the first time
 
 First you need to [install composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
 
@@ -35,7 +39,7 @@ The `composer create-project` command passes ownership of all files to the
 project that is created. You should create a new git repository, and commit
 all files not excluded by the .gitignore file.
 
-## What does the template do?
+## 2. What does the template do?
 
 When installing the given `composer.json` some tasks are taken care of:
 
@@ -51,7 +55,7 @@ When installing the given `composer.json` some tasks are taken care of:
 * Latest version of DrupalConsole is installed locally for use at `vendor/bin/drupal`.
 * Creates environment variables based on your .env file. See [.env.example](.env.example).
 
-## Updating Drupal Core
+## 3. Updating Drupal Core
 
 This project will attempt to keep all of your Drupal Core files up-to-date; the
 project [drupal-composer/drupal-scaffold](https://github.com/drupal-composer/drupal-scaffold)
@@ -75,21 +79,21 @@ Follow the steps below to update your core files.
    keeping all of your modifications at the beginning or end of the file is a
    good strategy to keep merges easy.
 
-## Generate composer.json from existing project
+## 4. Generate composer.json from existing project
 
 With using [the "Composer Generate" drush extension](https://www.drupal.org/project/composer_generate)
 you can now generate a basic `composer.json` file from an existing project. Note
 that the generated `composer.json` might differ from this project's file.
 
 
-## FAQ
+## 5. FAQ
 
-### Should I commit the contrib modules I download?
+### 5.1 Should I commit the contrib modules I download?
 
 Composer recommends **no**. They provide [argumentation against but also
 workrounds if a project decides to do it anyway](https://getcomposer.org/doc/faqs/should-i-commit-the-dependencies-in-my-vendor-directory.md).
 
-### Should I commit the scaffolding files?
+### 5.2 Should I commit the scaffolding files?
 
 The [drupal-scaffold](https://github.com/drupal-composer/drupal-scaffold) plugin can download the scaffold files (like
 index.php, update.php, …) to the web/ directory of your project. If you have not customized those files you could choose
@@ -109,7 +113,7 @@ achieve that by registering `@composer drupal:scaffold` as post-install and post
     ]
 },
 ```
-### How can I apply patches to downloaded modules?
+### 5.3 How can I apply patches to downloaded modules?
 
 If you need to apply patches (depending on the project being modified, a pull
 request is often a better solution), you can do so with the
@@ -126,11 +130,11 @@ section of composer.json:
     }
 }
 ```
-### How do I switch from packagist.drupal-composer.org to packages.drupal.org?
+### 5.4 How do I switch from packagist.drupal-composer.org to packages.drupal.org?
 
 Follow the instructions in the [documentation on drupal.org](https://www.drupal.org/docs/develop/using-composer/using-packagesdrupalorg).
 
-### How do I specify a PHP version ?
+### 5.5 How do I specify a PHP version ?
 
 This project supports PHP 7.0 as minimum version (see [Drupal 8 PHP requirements](https://www.drupal.org/docs/8/system-requirements/drupal-8-php-requirements)), however it's possible that a `composer update` will upgrade some package that will then require PHP 7+.
 
