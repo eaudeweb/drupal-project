@@ -93,7 +93,8 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::copyDefaultSettingsFiles"
+            "DrupalProject\\composer\\ScriptHandler::copyDefaultSettingsFiles",
+            "DrupalProject\\composer\\ScriptHandler::copyLocalSettingsFiles"
         ],
         "pre-install-cmd": [
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"

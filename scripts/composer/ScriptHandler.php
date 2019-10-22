@@ -133,7 +133,7 @@ class ScriptHandler {
     $files = [
       "{$drupalRoot}/../example.robo.yml" => "{$drupalRoot}/../robo.yml",
       "{$drupalRoot}/sites/example.settings.local.php" => "{$drupalRoot}/sites/default/settings.local.php",
-      "{$drupalRoot}/drush/sites/example.self.site.yml" => "{$drupalRoot}/drush/sites/self.site.yml",
+      "{$drupalRoot}/../drush/sites/example.self.site.yml" => "{$drupalRoot}/../drush/sites/self.site.yml",
     ];
 
     foreach ($files as $sourceFile => $targetFile) {
