@@ -10,7 +10,7 @@
    - `drush/sites/self.site.yml`
 4. Install the database using one of the two methods below:
    1. Run `./install.sh` script which will clone the database from the url specified in `robo.yml` file
-   2. Run `./vendor/bin/robo site:install --existing-config` which will install the database using the configuration files found in `config/sync` directory
+   2. Run `./vendor/bin/drush site:install --existing-config` which will install the database using the configuration files found in `config/sync` directory
    
 
 ### 1.2 Creating the project for the first time
