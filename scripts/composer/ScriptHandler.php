@@ -137,7 +137,7 @@ class ScriptHandler {
     ];
 
     foreach ($files as $sourceFile => $targetFile) {
-      if ($fs->exists($targetFile)) {
+      if ($fs->exists($targetFile) && $event->getName() != 'post-create-project-cmd') {
         continue;
       }
       $event->getIO()->write("<warning>{$targetFile} has been created. Please configure it for your local instance.</warning>");
