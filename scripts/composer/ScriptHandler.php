@@ -97,23 +97,50 @@ class ScriptHandler {
     }
   }
 
-  public static function copySettingsFiles(Event $event) {
+  /**
+   * Copy pre-defined example settings files and the default settings.php file.
+   */
+  public static function copyDefaultSettingsFiles(Event $event) {
     $fs = new Filesystem();
     $drupalFinder = new DrupalFinder();
     $drupalFinder->locateRoot(getcwd());
     $drupalRoot = $drupalFinder->getDrupalRoot();
 
-    $filesLocation = [
+    $files = [
       'example.settings.local.php' => 'sites',
       'development.services.yml' => 'sites',
       'settings.php' => 'sites/default',
     ];
 
-    foreach ($filesLocation as $file => $location) {
+    foreach ($files as $file => $location) {
       $sourceFile = "{$drupalRoot}/../scripts/composer/files/{$file}";
       $targetFile = "{$drupalRoot}/{$location}/{$file}";
 
       $event->getIO()->write("Copy {$sourceFile} to {$targetFile}");
+      $fs->copy($sourceFile, $targetFile, TRUE);
+    }
+  }
+
+  /**
+   * Prepare local settings files.
+   */
+  public static function copyLocalSettingsFiles(Event $event) {
+    $fs = new Filesystem();
+    $drupalFinder = new DrupalFinder();
+    $drupalFinder->locateRoot(getcwd());
+    $drupalRoot = $drupalFinder->getDrupalRoot();
+
+    $files = [
+      "{$drupalRoot}/../example.robo.yml" => "{$drupalRoot}/../robo.yml",
+      "{$drupalRoot}/sites/example.settings.local.php" => "{$drupalRoot}/sites/default/settings.local.php",
+      "{$drupalRoot}/drush/sites/example.self.site.yml" => "{$drupalRoot}/drush/sites/self.site.yml",
+    ];
+
+    foreach ($files as $sourceFile => $targetFile) {
+      if ($fs->exists($targetFile)) {
+        continue;
+      }
+      $event->getIO()->write("<warning>{$targetFile} has been created. Please configure it for your local instance.</warning>");
       $fs->copy($sourceFile, $targetFile, TRUE);
     }
   }
