@@ -4,7 +4,6 @@
 /test.php
 *.log
 /web/sync
-/web/sites/*/settings.php
 /web/sites/*/settings.local.php
 /docker-compose.override.yml
 /drush/sites/self.site.yml
