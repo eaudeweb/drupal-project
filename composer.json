@@ -93,9 +93,6 @@
         "files": ["load.environment.php"]
     },
     "scripts": {
-        "post-create-project-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::copySettingsFiles"
-        ],
         "pre-install-cmd": [
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
@@ -103,9 +100,11 @@
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
         "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::copySettingsFiles",
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
         "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::copySettingsFiles",
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ]
     },

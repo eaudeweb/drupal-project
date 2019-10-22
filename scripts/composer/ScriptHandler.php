@@ -110,7 +110,11 @@ class ScriptHandler {
     ];
 
     foreach ($filesLocation as $file => $location) {
-      $fs->copy("{$drupalRoot}/../scripts/composer/files/{$file}", "{$drupalRoot}/{$location}/{$file}");
+      $targetFile = "{$drupalRoot}/{$location}/{$file}";
+      if ($fs->exists($targetFile)) {
+        continue;
+      }
+      $fs->copy("{$drupalRoot}/../scripts/composer/files/{$file}", $targetFile);
     }
   }
 
