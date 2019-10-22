@@ -1,13 +1,3 @@
-# Ignore sensitive information
-/sql
-/robo.yml
-/test.php
-*.log
-/web/sync
-/web/sites/*/settings.local.php
-/docker-compose.override.yml
-/drush/sites/self.site.yml
-
 # Ignore Drupal's file directory
 /web/sites/*/files/
 /private-files/
@@ -21,3 +11,12 @@
 
 # Ignore .env files as they are personal
 /.env
+
+# Ignore sensitive information
+/sql
+/test.php
+*.log
+/web/sync
+/web/sites/*/settings.local.php
+/docker-compose.override.yml
+/drush/sites/self.site.yml

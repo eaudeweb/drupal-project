@@ -98,7 +98,20 @@ class ScriptHandler {
   }
 
   public static function copySettingsFiles(Event $event) {
+    $fs = new Filesystem();
+    $drupalFinder = new DrupalFinder();
+    $drupalFinder->locateRoot(getcwd());
+    $drupalRoot = $drupalFinder->getDrupalRoot();
 
+    $filesLocation = [
+      'example.settings.local.php' => 'sites/',
+      'development.services.yml' => 'sites/',
+      'settings.php' => 'sites/default/',
+    ];
+
+    foreach ($filesLocation as $file => $location) {
+      $fs->copy("{$drupalRoot}/../scripts/composer/files/{$file}", "{$drupalRoot}/{$location}/{$file}");
+    }
   }
 
 }
