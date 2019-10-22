@@ -97,4 +97,8 @@ class ScriptHandler {
     }
   }
 
+  public static function copySettingsFiles(Event $event) {
+
+  }
+
 }
