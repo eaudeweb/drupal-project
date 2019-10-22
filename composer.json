@@ -13,105 +13,10 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "ckeditor/autogrow",
-                "version": "4.11.4",
-                "type": "drupal-library",
-                "extra": {
-                    "installer-name": "ckeditor.autogrow"
-                },
-                "dist": {
-                    "url": "https://download.ckeditor.com/autogrow/releases/autogrow_4.11.4.zip",
-                    "type": "zip"
-                },
-                "require": {
-                    "composer/installers": "^1.2.0"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "ckeditor/codemirror",
-                "version": "v1.17.12",
-                "type": "drupal-library",
-                "extra": {
-                    "installer-name": "ckeditor.codemirror"
-                },
-                "dist": {
-                    "url": "https://github.com/w8tcha/CKEditor-CodeMirror-Plugin/releases/download/v1.17.12/CKEditor-CodeMirror-Plugin.zip",
-                    "type": "zip"
-                },
-                "require": {
-                    "composer/installers": "^1.2.0"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "ckeditor/fakeobjects",
-                "version": "4.11.4",
-                "type": "drupal-library",
-                "extra": {
-                    "installer-name": "ckeditor.fakeobjects"
-                },
-                "dist": {
-                    "url": "https://download.ckeditor.com/fakeobjects/releases/fakeobjects_4.11.4.zip",
-                    "type": "zip"
-                },
-                "require": {
-                    "composer/installers": "^1.2.0"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "ckeditor/image",
-                "version": "4.11.4",
-                "type": "drupal-library",
-                "extra": {
-                    "installer-name": "ckeditor.image"
-                },
-                "dist": {
-                    "url": "https://download.ckeditor.com/image/releases/image_4.11.4.zip",
-                    "type": "zip"
-                },
-                "require": {
-                    "composer/installers": "^1.2.0"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "ckeditor/link",
-                "version": "4.11.4",
-                "type": "drupal-library",
-                "extra": {
-                    "installer-name": "ckeditor.link"
-                },
-                "dist": {
-                    "url": "https://download.ckeditor.com/link/releases/link_4.11.4.zip",
-                    "type": "zip"
-                },
-                "require": {
-                    "composer/installers": "^1.2.0"
-                }
-            }
         }
     ],
     "require": {
         "php": ">=7.0.8",
-        "ckeditor/autogrow": "^4.11",
-        "ckeditor/codemirror": "^1.17",
-        "ckeditor/fakeobjects": "^4.11",
-        "ckeditor/image": "^4.11",
-        "ckeditor/link": "^4.11",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.5",
         "drupal-composer/drupal-scaffold": "^2.5",
