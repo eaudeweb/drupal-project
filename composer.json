@@ -94,8 +94,7 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::copySettingsFiles",
-            "./vendor/bin/robo site:config"
+            "DrupalProject\\composer\\ScriptHandler::copySettingsFiles"
         ],
         "pre-install-cmd": [
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"

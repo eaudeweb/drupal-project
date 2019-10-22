@@ -14,6 +14,7 @@
 
 # Ignore sensitive information
 /sql
+/robo.yml
 /test.php
 *.log
 /web/sync
