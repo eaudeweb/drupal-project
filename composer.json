@@ -41,6 +41,30 @@
             }
         },
         {
+            "type": "package",
+            "package": {
+                "name": "desandro/masonry",
+                "version": "3.3.1",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/desandro/masonry/archive/v3.3.1.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "desandro/imagesloaded",
+                "version": "3.1.8",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/desandro/imagesloaded/archive/v3.1.8.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
             "type"    : "package",
             "package" : {
                 "name"    : "enyoo/dropzone",
@@ -70,11 +94,10 @@
     ],
     "require": {
         "php": ">=7.0.8",
-        "composer/installers": "^1.2",
+        "composer/installers": "^1.7",
         "cweagans/composer-patches": "^1.6.5",
         "datatables/datatables": "^1.10",
-        "drupal-composer/drupal-scaffold": "^2.5",
-        "drupal/admin_toolbar": "^1.26",
+        "drupal/admin_toolbar": "^2.0",
         "drupal/autologout": "^1.0",
         "drupal/better_exposed_filters": "^3.0@alpha",
         "drupal/bootstrap": "^3.17",
@@ -82,7 +105,8 @@
         "drupal/chosen": "^2.6",
         "drupal/colorbox": "^1.4",
         "drupal/console": "^1.0.2",
-        "drupal/core": "^8.7.0",
+        "drupal/core": "^8.8.0",
+        "drupal/core-composer-scaffold": "^8.8.0",
         "drupal/csv_serialization": "^1.4",
         "drupal/ctools": "^3.2",
         "drupal/datatables": "^1.0@RC",
@@ -95,7 +119,7 @@
         "drupal/facets": "^1.1",
         "drupal/facets_pretty_paths": "^1.0",
         "drupal/features": "^3.8",
-        "drupal/field_group": "3.0-beta1",
+        "drupal/field_group": "^3.0",
         "drupal/file_browser": "^1.1",
         "drupal/google_analytics": "^2.3",
         "drupal/honeypot": "^1.27",
@@ -129,10 +153,12 @@
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
-        "zaporylie/composer-drupal-optimizations": "^1.0"
+        "zaporylie/composer-drupal-optimizations": "^1.0",
+        "desandro/masonry": "3.3.1",
+        "desandro/imagesloaded": "3.1.8"
     },
     "require-dev": {
-        "webflo/drupal-core-require-dev": "^8.7.0"
+        "drupal/core-dev": "^8.8.0"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -173,6 +199,11 @@
         "patchLevel": {
             "drupal/core": "-p2"
         },
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            }
+        },
         "installer-paths": {
             "web/core": ["type:drupal-core"],
             "web/libraries/{$name}": ["type:drupal-library"],
@@ -181,12 +212,6 @@
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
             "drush/Commands/contrib/{$name}": ["type:drupal-drush"]
         },
-        "patches-file": "composer.patches.json",
-        "drupal-scaffold": {
-            "initial": {
-                ".editorconfig": "../.editorconfig",
-                ".gitattributes": "../.gitattributes"
-            }
-        }
+        "patches-file": "composer.patches.json"
     }
 }
